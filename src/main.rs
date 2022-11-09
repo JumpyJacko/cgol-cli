@@ -146,6 +146,10 @@ fn main() {
         return occupied_neighbours;
     }
 
+    // FIXME: I need to use a different array for the neighbours and read from the screen into that array
+    //        which I then need to operate from that array into the main screen. This fixes the problem of
+    //        it operating with new cells which shouldn't exist yet.
+
     // TODO: Do something with the returned amount of neighbours
 
     print!("\x1B[2J\x1B[1;1H");
