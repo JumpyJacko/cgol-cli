@@ -68,7 +68,7 @@ fn main() {
         .arg(Arg::new("frame-time")
             .short('t')
             .long("frame-time")
-            .default_value("40")
+            .default_value("500")
             .help("Input how long to hold a frame\n    (in millis)"))
         .get_matches();
 
@@ -90,32 +90,57 @@ fn main() {
         let mut occupied_neighbours: u8 = 0;
 
         // NOTE: Unclean, very not cool, way of doing the check, surely theres a better solution
-        if state[y-1][x-1] == 1 {
-            occupied_neighbours += 1;
+        //       Now just here to gloat about how I was able to reduce the amount of lines by a lot
+        //       Need to check whether its actually faster tho lol
+        // if state[y-1][x-1] == 1 {
+        //     occupied_neighbours += 1;
+        // }
+        // if state[y-1][x] == 1 {
+        //     occupied_neighbours += 1;
+        // }
+        // if state[y-1][x+1] == 1 {
+        //     occupied_neighbours += 1;
+        // }
+        // if state[y][x-1] == 1 {
+        //     occupied_neighbours += 1;
+        // }
+        // if state[y][x] == 1 {
+        //     occupied_neighbours += 1;
+        // }
+        // if state[y][x+1] == 1 {
+        //     occupied_neighbours += 1;
+        // }
+        // if state[y+1][x-1] == 1 {
+        //     occupied_neighbours += 1;
+        // }
+        // if state[y+1][x] == 1 {
+        //     occupied_neighbours += 1;
+        // }
+        // if state[y+1][x+1] == 1 {
+        //     occupied_neighbours += 1;
+        // }
+
+        // Checks the surrounding cells with a for loop
+        for i in 0i32..=2 {
+            for j in 0i32..=2 {
+                let m_y: i32 = y as i32 +(i-1);
+                let m_x: i32 = x as i32 +(j-1);
+                
+                // Check if out of bounds and skipping this index if it is (would panic otherwise)
+                if m_y < 0 || m_x < 0 || m_y > SIZE as i32 - 1 || m_x > SIZE as i32 - 1 {
+                    continue;
+                }
+
+                if state[(y as i32 +(i-1)) as usize][(x as i32 +(j-1)) as usize] == 1 {
+                    occupied_neighbours += 1;
+                }
+            }
         }
-        if state[y-1][x] == 1 {
-            occupied_neighbours += 1;
-        }
-        if state[y-1][x+1] == 1 {
-            occupied_neighbours += 1;
-        }
-        if state[y][x-1] == 1 {
-            occupied_neighbours += 1;
-        }
+
+
+        // Subtracts 1 from total cound in case the current cell is occupied (as it is included in the count)
         if state[y][x] == 1 {
-            occupied_neighbours += 1;
-        }
-        if state[y][x+1] == 1 {
-            occupied_neighbours += 1;
-        }
-        if state[y+1][x-1] == 1 {
-            occupied_neighbours += 1;
-        }
-        if state[y+1][x] == 1 {
-            occupied_neighbours += 1;
-        }
-        if state[y+1][x+1] == 1 {
-            occupied_neighbours += 1;
+            occupied_neighbours -= 1;
         }
 
         return occupied_neighbours;
@@ -126,22 +151,49 @@ fn main() {
     print!("\x1B[2J\x1B[1;1H");
 
     let mut screen: [[u8; 40]; 40] = starting_state;
-    let x = 0;
-    let y = 0;
 
-    let neighbours: u8 = check_neighbours(&screen, x, y);
-    
-    screen[y][x] = 1;
-    
-    let mut i = 0;
-    // "Renders" 2D array from 0 and 1 to '..' and '##'
-    for row in screen.iter_mut() {
-        for cell in row.iter_mut() {
-            print!("{}{0}", if *cell as u8 == 1 {line_char} else {fill_char});
+    loop {
+        let timer = Instant::now();
+
+        print!("\x1B[2J\x1B[1;1H");
+
+        // "Renders" 2D array from 0 and 1 to '..' and '##'
+        for row in screen.iter_mut() {
+            for cell in row.iter_mut() {
+                print!(" {}", if *cell as u8 == 1 {line_char} else {fill_char});
+            }
+            print!("\n");
         }
-        print!(" {}", i);
-        print!("\n");
-        i += 1;
+
+        println!("");
+
+        // Performs the if statements for Conway's Game of Life
+        //      Maybe try out the .iter().position() pattern?
+        for i in 0..SIZE {
+            for j in 0..SIZE {
+                let c_state: u8 = screen[j][i];
+                let neighbours: u8 = check_neighbours(&screen, j, i);
+                print!(" {}", neighbours);
+
+                if c_state == 1 {
+                    if neighbours == 2 || neighbours == 3 {
+                        continue;
+                    }
+                } else if c_state == 0 {
+                    if neighbours == 3 {
+                        screen[j][i] = 1;
+                    }
+                } else {
+                    screen[j][i] = 0;
+                }
+            }
+            println!("");
+        }
+
+        let duration = timer.elapsed().as_micros();
+        println!("calculation duration: {} μs      ", duration);
+        println!("     frame hold time: {} ms      ", frame_time);
+
+        thread::sleep(Duration::from_millis(frame_time));
     }
-    println!("{} neighbours", neighbours);
 }
