@@ -16,24 +16,24 @@ fn main() {
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -68,7 +68,7 @@ fn main() {
         .arg(Arg::new("frame-time")
             .short('t')
             .long("frame-time")
-            .default_value("500")
+            .default_value("200")
             .help("Input how long to hold a frame\n    (in millis)"))
         .get_matches();
 
@@ -88,37 +88,6 @@ fn main() {
         Then, how do I quickly and efficiently check for neighbors
         */
         let mut occupied_neighbours: u8 = 0;
-
-        // NOTE: Unclean, very not cool, way of doing the check, surely theres a better solution
-        //       Now just here to gloat about how I was able to reduce the amount of lines by a lot
-        //       Need to check whether its actually faster tho lol
-        // if state[y-1][x-1] == 1 {
-        //     occupied_neighbours += 1;
-        // }
-        // if state[y-1][x] == 1 {
-        //     occupied_neighbours += 1;
-        // }
-        // if state[y-1][x+1] == 1 {
-        //     occupied_neighbours += 1;
-        // }
-        // if state[y][x-1] == 1 {
-        //     occupied_neighbours += 1;
-        // }
-        // if state[y][x] == 1 {
-        //     occupied_neighbours += 1;
-        // }
-        // if state[y][x+1] == 1 {
-        //     occupied_neighbours += 1;
-        // }
-        // if state[y+1][x-1] == 1 {
-        //     occupied_neighbours += 1;
-        // }
-        // if state[y+1][x] == 1 {
-        //     occupied_neighbours += 1;
-        // }
-        // if state[y+1][x+1] == 1 {
-        //     occupied_neighbours += 1;
-        // }
 
         // Checks the surrounding cells with a for loop
         for i in 0i32..=2 {
@@ -154,44 +123,61 @@ fn main() {
 
     print!("\x1B[2J\x1B[1;1H");
 
-    let mut screen: [[u8; 40]; 40] = starting_state;
+    let mut screen: [[u8; SIZE]; SIZE] = starting_state;
+    let mut neighbour_array: [[u8; SIZE]; SIZE] = [[0; SIZE]; SIZE];
+
+    // "Renders" 2D array from 0 and 1 to '..' and '##'
+    for row in screen.iter_mut() {
+        for cell in row.iter_mut() {
+            print!(" {}", if *cell as u8 == 1 {line_char} else {fill_char});
+        }
+        print!("\n");
+    }
 
     loop {
         let timer = Instant::now();
 
-        print!("\x1B[2J\x1B[1;1H");
+        print!("\x1B[1;1H");
 
+        for y in 0..SIZE {
+            for x in 0..SIZE {
+                neighbour_array[y][x] = check_neighbours(&screen, x, y);
+                // print!(" {}", neighbour_array[y][x]);
+            }
+            // println!("");
+        }
+
+        for y in 0..SIZE {
+            for x in 0..SIZE {
+                let c_state: u8 = screen[y][x];
+                let neighbours: u8 = neighbour_array[y][x];
+
+                // Get rid of the else { screen[y][x] = 0 } if u want it to grow like mold
+                if c_state == 1 {
+                    if neighbours == 2 || neighbours == 3 {
+                        screen[y][x] = 1;
+                    } else {
+                        screen[y][x] = 0;
+                    }
+                } else if c_state == 0 {
+                    if neighbours == 3 {
+                        screen[y][x] = 1;
+                    } else {
+                        screen[y][x] = 0;
+                    }
+                } else {
+                    screen[y][x] = 0;
+                }
+            }
+        }
+
+        
         // "Renders" 2D array from 0 and 1 to '..' and '##'
         for row in screen.iter_mut() {
             for cell in row.iter_mut() {
                 print!(" {}", if *cell as u8 == 1 {line_char} else {fill_char});
             }
             print!("\n");
-        }
-
-        println!("");
-
-        // Performs the if statements for Conway's Game of Life
-        //      Maybe try out the .iter().position() pattern?
-        for i in 0..SIZE {
-            for j in 0..SIZE {
-                let c_state: u8 = screen[j][i];
-                let neighbours: u8 = check_neighbours(&screen, j, i);
-                print!(" {}", neighbours);
-
-                if c_state == 1 {
-                    if neighbours == 2 || neighbours == 3 {
-                        continue;
-                    }
-                } else if c_state == 0 {
-                    if neighbours == 3 {
-                        screen[j][i] = 1;
-                    }
-                } else {
-                    screen[j][i] = 0;
-                }
-            }
-            println!("");
         }
 
         let duration = timer.elapsed().as_micros();
