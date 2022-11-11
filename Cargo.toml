@@ -7,3 +7,4 @@ edition = "2021"
 
 [dependencies]
 clap = "4.0.18"
+rayon = "1.5.3"

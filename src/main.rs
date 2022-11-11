@@ -1,8 +1,9 @@
 use clap::{Arg, Command};
+use rayon::prelude::*;
 use std::{
     thread,
     time::Duration,
-    time::Instant
+    time::Instant,
 };
 
 fn main() {
@@ -87,6 +88,26 @@ fn main() {
         */
         let mut occupied_neighbours: u8 = 0;
 
+        // Trying to parallel compute neighbours
+        // let i = 0i32..=2;
+        // let j = 0i32..2;
+
+        // i.into_par_iter()
+        //     .for_each(move |_| j.into_iter()
+        //     .for_each(|_| {
+        //         let m_y: i32 = y as i32 +(i-1);
+        //         let m_x: i32 = x as i32 +(j-1);
+                
+        //         // Check if out of bounds and skipping this index if it is (would panic otherwise)
+        //         if m_y < 0 || m_x < 0 || m_y > SIZE as i32 - 1 || m_x > SIZE as i32 - 1 {
+        //             ;
+        //         }
+
+        //         if state[(y as i32 +(i-1)) as usize][(x as i32 +(j-1)) as usize] == 1 {
+        //             occupied_neighbours += 1;
+        //         }
+        //     }));
+
         // Checks the surrounding cells with a for loop
         for i in 0i32..=2 {
             for j in 0i32..=2 {
@@ -103,6 +124,35 @@ fn main() {
                 }
             }
         }
+
+        // Working if statement (about on par or faster than above for loop)
+        // if y != 0 && x != 0 && state[y-1][x-1] == 1 {
+        //     occupied_neighbours += 1;
+        // }
+        // if y != 0 && state[y-1][x] == 1 {
+        //     occupied_neighbours += 1;
+        // }
+        // if y != 0 && x < SIZE - 1 && state[y-1][x+1] == 1 {
+        //     occupied_neighbours += 1;
+        // }
+        // if x != 0 && state[y][x-1] == 1 {
+        //     occupied_neighbours += 1;
+        // }
+        // if state[y][x] == 1 {
+        //     occupied_neighbours += 1;
+        // }
+        // if x < SIZE - 1 && state[y][x+1] == 1 {
+        //     occupied_neighbours += 1;
+        // }
+        // if y < SIZE - 1 && x != 0 && state[y+1][x-1] == 1 {
+        //     occupied_neighbours += 1;
+        // }
+        // if y < SIZE - 1 && state[y+1][x] == 1 {
+        //     occupied_neighbours += 1;
+        // }
+        // if y < SIZE - 1 && x < SIZE - 1 && state[y+1][x+1] == 1 {
+        //     occupied_neighbours += 1;
+        // }
 
 
         // Subtracts 1 from total cound in case the current cell is occupied (as it is included in the count)
@@ -131,13 +181,23 @@ fn main() {
 
         print!("\x1B[1;1H");
 
-        for y in 0..SIZE {
-            for x in 0..SIZE {
-                neighbour_array[y][x] = check_neighbours(&screen, x, y);
-                // print!(" {}", neighbour_array[y][x]);
-            }
-            // println!("");
-        }
+        // for y in 0..SIZE {
+        //     for x in 0..SIZE {
+        //         neighbour_array[y][x] = check_neighbours(&screen, x, y);
+        //         // print!(" {}", neighbour_array[y][x]);
+        //     }
+        //     // println!("");
+        // }
+        // for y in neighbour_array.iter_mut().enumerate() {
+        //     for x in y.1.iter_mut().enumerate() {
+        //         *x.1 = check_neighbours(&screen, x.0, y.0);
+        //     }
+        // }
+
+        neighbour_array.par_iter_mut()
+            .enumerate()
+            .for_each(|y| y.1.par_iter_mut().enumerate()
+            .for_each(|x| *x.1 = check_neighbours(&screen, x.0, y.0)));
 
         for y in 0..SIZE {
             for x in 0..SIZE {
