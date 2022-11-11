@@ -51,8 +51,8 @@ fn main() {
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     ];
 
-    let matches = Command::new("wireframe-cli")
-        .version("0.4.0")
+    let matches = Command::new("cgol-cli")
+        .version(env!("CARGO_PKG_VERSION"))
         .author("Jackson Ly (JumpyJacko)")
         .about("A small version of Conway's Game of Life")
         .arg(Arg::new("fill")
@@ -76,8 +76,6 @@ fn main() {
     let line_char: &str = matches.get_one::<String>("line").unwrap();
     let frame_time: u64 = matches.get_one::<String>("frame-time").unwrap().parse::<u64>().unwrap();
 
-    // TODO: Function to check neighbors
-    //          Have to check for edges
     fn check_neighbours(state: &[[u8; 40]; 40], x: usize, y: usize) -> u8 {
         /*
         If the index is (x, y)
@@ -114,12 +112,6 @@ fn main() {
 
         return occupied_neighbours;
     }
-
-    // FIXME: I need to use a different array for the neighbours and read from the screen into that array
-    //        which I then need to operate from that array into the main screen. This fixes the problem of
-    //        it operating with new cells which shouldn't exist yet.
-
-    // TODO: Do something with the returned amount of neighbours
 
     print!("\x1B[2J\x1B[1;1H");
 
